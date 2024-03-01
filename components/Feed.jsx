@@ -24,6 +24,7 @@ const Feed = () => {
   const [searchTimeout, setSearchTimeout] = useState(null)
   const [searchedResults, setSearchedResults] = useState([])
   const [posts, setPosts] = useState([])
+  console.log('posts in FEED =>', posts)
 
   const filterPrompts = (searchtext) => {
     const regex = new RegExp(searchtext, "i")
@@ -54,12 +55,13 @@ const Feed = () => {
     setSearchedResults(searchResult)
   }
 
+  const fetchPosts = async () => {
+    const response = await fetch('/api/prompt')
+    const data = await response.json()
+    setPosts(data)
+  }
+
   useEffect(() => {
-    const fetchPosts = async () => {
-      const response = await fetch('/api/prompt')
-      const data = await response.json()
-      setPosts(data)
-    }
     fetchPosts()
   }, [])
 
