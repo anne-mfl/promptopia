@@ -24,7 +24,6 @@ const Feed = () => {
   const [searchTimeout, setSearchTimeout] = useState(null)
   const [searchedResults, setSearchedResults] = useState([])
   const [posts, setPosts] = useState([])
-  console.log('posts in FEED =>', posts)
 
   const filterPrompts = (searchtext) => {
     const regex = new RegExp(searchtext, "i")

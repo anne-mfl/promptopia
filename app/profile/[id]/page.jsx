@@ -8,7 +8,6 @@ const page = ({ params }) => {
   const userName = searchParams.get('name')
 
   const [posts, setPosts] = useState([])
-  console.log('posts in PROFILE =>', posts)
 
 
   useEffect(() => {
